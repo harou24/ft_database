@@ -3,9 +3,55 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"sync"
 )
 
 const Version = "1.0"
+
+type (
+	Logger interface {
+		Fatal(string, ...interface{})
+		Error(string, ...interface{})
+		Warning(string, ...interface{})
+		Info(string, ...interface{})
+		Debug(string, ...interface{})
+		Trace(string, ...interface{})
+	}
+
+	Driver struct {
+		mutex   sync.Mutex
+		mutexes map[string]*sync.Mutex
+		dir     string
+	}
+)
+
+type Options struct {
+	Logger
+}
+
+func New(dir, o) {
+
+}
+
+func Write() error {
+
+}
+
+func Read() error {
+
+}
+
+func ReadAll() {
+
+}
+
+func Delete() error {
+
+}
+
+func getOrCreateMutex() *sync.Mutex {
+
+}
 
 type Address struct {
 	City    string
@@ -20,10 +66,6 @@ type User struct {
 	Contact string
 	Company string
 	Address Address
-}
-
-func New(dir, o) {
-
 }
 
 func main() {
