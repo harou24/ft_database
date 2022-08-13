@@ -1,4 +1,4 @@
-package main
+package database
 
 import (
 	"encoding/json"
@@ -188,7 +188,7 @@ type User struct {
 	Address Address
 }
 
-func main() {
+func Run() {
 	fmt.Println("HELLO")
 	dir := "./"
 
