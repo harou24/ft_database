@@ -1,10 +1,9 @@
 package cmd
 
 import (
-	"bufio"
-	"fmt"
 	"os"
 
+	userinterface "github.com/harou24/ft_database/user_interface"
 	"github.com/spf13/cobra"
 )
 
@@ -14,19 +13,7 @@ var rootCmd = &cobra.Command{
 	Short: "A database",
 	Long:  `Database saving data in json format.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		reader := bufio.NewReader(os.Stdin)
-
-		for {
-			fmt.Print("ft_database :> ")
-			userInput, err := reader.ReadString('\n')
-			if err != nil {
-				fmt.Errorf("Error: %v", err)
-			}
-			if userInput == "exit\n" {
-				break
-			}
-			fmt.Print(userInput)
-		}
+		userinterface.InteractivePrompt()
 
 	},
 }
